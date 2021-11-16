@@ -2,7 +2,7 @@ package de.htwberlin.webtech.webtech.web.api;
 
 import java.util.Date;
 
-public class Person {
+public class Guest {
 
         private long id;
         private String firstName;
@@ -10,7 +10,7 @@ public class Person {
         private String bDay;
         private boolean invited;
 
-        public Person(long id, String firstName, String lastName, String bDay, boolean invited) {
+        public Guest(long id, String firstName, String lastName, String bDay, boolean invited) {
             this.id = id;
             this.firstName = firstName;
             this.bDay = bDay;

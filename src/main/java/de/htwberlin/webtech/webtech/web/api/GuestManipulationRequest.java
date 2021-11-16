@@ -2,14 +2,14 @@ package de.htwberlin.webtech.webtech.web.api;
 
 import java.util.Date;
 
-public class PersonManipulationRequest {
+public class GuestManipulationRequest {
 
     private String firstName;
     private String lastName;
     private String bDay;
     private boolean invited;
 
-    public PersonManipulationRequest(long id, String firstName, String lastName, String bDay, boolean invited) {
+    public GuestManipulationRequest(long id, String firstName, String lastName, String bDay, boolean invited) {
         this.firstName = firstName;
         this.bDay = bDay;
         this.lastName = lastName;

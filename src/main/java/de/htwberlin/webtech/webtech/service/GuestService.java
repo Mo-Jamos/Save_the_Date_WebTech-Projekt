@@ -24,7 +24,7 @@ public class GuestService {
                         guestEntity.getId(),
                         guestEntity.getFirstName(),
                         guestEntity.getLastName(),
-                        guestEntity.getbDay(),
+                        guestEntity.getWDay(),
                         guestEntity.getInvited()
                 ))
                 .collect(Collectors.toList());
@@ -32,7 +32,7 @@ public class GuestService {
     }
 
     public Guest create(GuestManipulationRequest request) {
-        var guestEntity = new GuestEntity(request.getFirstName(), request.getLastName(), request.getBDay(), request.isInvited());
+        var guestEntity = new GuestEntity(request.getFirstName(), request.getLastName(), request.getWDay(), request.isInvited());
         guestEntity = geustRepository.save(guestEntity);
         return transformEntity(guestEntity);
     }
@@ -42,7 +42,7 @@ public class GuestService {
                 guestEntity.getId(),
                 guestEntity.getFirstName(),
                 guestEntity.getLastName(),
-                guestEntity.getbDay(),
+                guestEntity.getWDay(),
                 guestEntity.getInvited()
         );
     }
@@ -58,7 +58,7 @@ public class GuestService {
         var guestEntity = guestEntityOptional.get();
         guestEntity.setFirstName(request.getFirstName());
         guestEntity.setLastName(request.getLastName());
-        guestEntity.setbDay(request.getBDay());
+        guestEntity.setWDay(request.getWDay());
         guestEntity.setInvited(request.isInvited());
         guestEntity = geustRepository.save(guestEntity);
 

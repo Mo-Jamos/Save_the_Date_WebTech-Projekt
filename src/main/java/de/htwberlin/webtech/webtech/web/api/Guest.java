@@ -7,14 +7,14 @@ public class Guest {
         private long id;
         private String firstName;
         private String lastName;
-        private String bDay;
+        private Date wDay;
         private boolean invited;
 
-        public Guest(long id, String firstName, String lastName, String bDay, boolean invited) {
+        public Guest(long id, String firstName, String lastName, Date wDay, boolean invited) {
             this.id = id;
             this.firstName = firstName;
-            this.bDay = bDay;
             this.lastName = lastName;
+            this.wDay = wDay;
             this.invited = invited;
         }
 
@@ -42,12 +42,12 @@ public class Guest {
             this.lastName = lastName;
         }
 
-        public String getBDay() {
-             return bDay;
+        public Date getWDay() {
+             return wDay;
          }
 
-        public void setBDay(String bDay) {
-            this.bDay = bDay;
+        public void setWDay(Date wDay) {
+            this.wDay = wDay;
          }
 
         public boolean isInvited() {

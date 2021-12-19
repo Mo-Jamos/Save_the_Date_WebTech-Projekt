@@ -6,15 +6,16 @@ public class GuestManipulationRequest {
 
     private String firstName;
     private String lastName;
-    private String bDay;
+    private Date wDay;
     private boolean invited;
 
-    public GuestManipulationRequest(long id, String firstName, String lastName, String bDay, boolean invited) {
+    public GuestManipulationRequest(long id, String firstName, String lastName, Date wDay, boolean invited) {
         this.firstName = firstName;
-        this.bDay = bDay;
+        this.wDay = wDay;
         this.lastName = lastName;
         this.invited = invited;
     }
+    public GuestManipulationRequest () {}
 
     public String getFirstName() {
         return firstName;
@@ -32,12 +33,12 @@ public class GuestManipulationRequest {
         this.lastName = lastName;
     }
 
-    public String getBDay() {
-        return bDay;
+    public Date getWDay() {
+        return wDay;
     }
 
-    public void setBDay(String bDay) {
-        this.bDay = bDay;
+    public void setWDay(Date wDay) {
+        this.wDay = wDay;
     }
 
     public boolean isInvited() {

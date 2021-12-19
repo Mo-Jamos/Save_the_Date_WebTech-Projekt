@@ -2,6 +2,7 @@ package de.htwberlin.webtech.webtech.persistence;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity(name = "guests")
 public class GuestEntity {
@@ -17,24 +18,24 @@ public class GuestEntity {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "birthday")
-    private String bDay;
+    @Column(name = "wedding_Day")
+    private Date wDay;
 
     @Column(name = "is_invited")
     private Boolean invited;
 
-    public GuestEntity(Long id, String firstName, String lastName, String bDay, Boolean invited) {
+    public GuestEntity(Long id, String firstName, String lastName, Date wDay, Boolean invited) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.bDay = bDay;
+        this.wDay = wDay;
         this.invited = invited;
     }
 
-    public GuestEntity(String firstName, String lastName, String bDay, Boolean invited) {
+    public GuestEntity(String firstName, String lastName, Date wDay, Boolean invited) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.bDay = bDay;
+        this.wDay = wDay;
         this.invited = invited;
     }
 
@@ -60,12 +61,12 @@ public class GuestEntity {
         this.lastName = lastName;
     }
 
-    public String getbDay() {
-        return bDay;
+    public Date getWDay() {
+        return wDay;
     }
 
-    public void setbDay(String bDay) {
-        this.bDay = bDay;
+    public void setWDay(Date bDay) {
+        this.wDay = wDay;
     }
 
     public Boolean getInvited() {

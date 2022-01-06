@@ -65,7 +65,7 @@ public class GuestEntity {
         return wDay;
     }
 
-    public void setWDay(Date bDay) {
+    public void setWDay(Date wDay) {
         this.wDay = wDay;
     }
 

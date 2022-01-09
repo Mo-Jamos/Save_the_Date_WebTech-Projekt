@@ -6,6 +6,7 @@ import de.htwberlin.webtech.webtech.web.api.GuestManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -28,10 +29,14 @@ public class GuestRestController {
     }
 
     @PostMapping(path = "/api/v1/guests")
-    public ResponseEntity<Void> createGuest(@RequestBody GuestManipulationRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createGuest(@Valid @RequestBody GuestManipulationRequest request) throws URISyntaxException {
+
         var guest = guestService.create(request);
         URI uri = new URI("/api/v1/guests/" + guest.getId());
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity
+                .created(uri)
+                .header("Access-Control-Expose-Headers", "Location")
+                .build();
     }
 
     @GetMapping(path = "/api/v1/guests/{id}")
@@ -49,4 +54,19 @@ public class GuestRestController {
         boolean successful = guestService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
+
+
+    /*private boolean validate(GuestManipulationRequest request){
+
+        return request.getFirstName() != null
+                && !request.getFirstName().isBlank()
+                && request.getLastName() != null
+                && !request.getLastName().isBlank()
+                && request.getEmail() != null
+                && !request.getEmail().isBlank()
+                && request.geNote() != null
+                && !request.geNote().isBlank();
+
+
+    }*/
 }

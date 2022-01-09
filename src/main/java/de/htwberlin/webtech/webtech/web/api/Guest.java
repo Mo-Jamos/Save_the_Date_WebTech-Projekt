@@ -1,5 +1,7 @@
 package de.htwberlin.webtech.webtech.web.api;
 
+import de.htwberlin.webtech.webtech.persistence.relationship;
+
 import java.util.Date;
 
 public class Guest {
@@ -7,18 +9,26 @@ public class Guest {
         private long id;
         private String firstName;
         private String lastName;
-        private Date wDay;
+        private String email;
         private boolean invited;
+        private boolean plusOne;
+        private String note;
+        private String relationship;
 
-        public Guest(long id, String firstName, String lastName, Date wDay, boolean invited) {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.wDay = wDay;
-            this.invited = invited;
-        }
+    public Guest(long id, String firstName, String lastName, String email, boolean invited, boolean plusOne, String note, String relationShip) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.invited = invited;
+        this.plusOne = plusOne;
+        this.note = note;
+        this.relationship = relationShip;
+    }
 
-        public long getId() {
+
+
+    public long getId() {
             return id;
         }
 
@@ -42,12 +52,12 @@ public class Guest {
             this.lastName = lastName;
         }
 
-        public Date getWDay() {
-             return wDay;
+        public String getEmail() {
+             return email;
          }
 
-        public void setWDay(Date wDay) {
-            this.wDay = wDay;
+        public void setEmail(String email) {
+            this.email = email;
          }
 
         public boolean isInvited() {
@@ -57,4 +67,27 @@ public class Guest {
         public void setInvited(boolean invited) {
             this.invited = invited;
         }
+
+    public boolean isPlusOne() {
+        return plusOne;
+    }
+
+    public void setPlusOne(boolean plusOne) {
+        this.plusOne = plusOne;
+    }
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setRelationship(String relationship) {
+        this.relationship = relationship;
+    }
+
+    public String getRelationship() {
+        return relationship;
+    }
 }

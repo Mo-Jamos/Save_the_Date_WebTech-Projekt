@@ -18,25 +18,30 @@ public class GuestEntity {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "wedding_Day")
-    private Date wDay;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "is_invited")
     private Boolean invited;
 
-    public GuestEntity(Long id, String firstName, String lastName, Date wDay, Boolean invited) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.wDay = wDay;
-        this.invited = invited;
-    }
+    @Column(name = "plus_one")
+    private Boolean plusOne;
 
-    public GuestEntity(String firstName, String lastName, Date wDay, Boolean invited) {
+    @Column(name = "note")
+    private String note;
+
+    @Column(name = "relationship")
+    @Enumerated(value = EnumType.STRING)
+    private relationship relationship;
+
+    public GuestEntity(String firstName, String lastName, String email, Boolean invited, Boolean plusOne, String note, relationship relationship) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.wDay = wDay;
+        this.email = email;
         this.invited = invited;
+        this.plusOne = plusOne;
+        this.note = note;
+        this.relationship = relationship;
     }
 
     protected GuestEntity() { }
@@ -61,12 +66,12 @@ public class GuestEntity {
         this.lastName = lastName;
     }
 
-    public Date getWDay() {
-        return wDay;
+    public String getEmail() {
+        return email;
     }
 
-    public void setWDay(Date wDay) {
-        this.wDay = wDay;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Boolean getInvited() {
@@ -77,5 +82,28 @@ public class GuestEntity {
         this.invited = invited;
     }
 
+    public boolean getPlusOne() {
+        return plusOne;
+    }
+
+    public void setPlusOne(boolean plusOne) {
+        this.plusOne = plusOne;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setRelationship(relationship relationship) {
+        this.relationship = relationship;
+    }
+
+    public relationship getRelationship() {
+        return relationship;
+    }
 
 }
